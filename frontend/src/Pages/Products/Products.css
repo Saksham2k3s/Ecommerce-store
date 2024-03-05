@@ -1,0 +1,92 @@
+.container {
+    display: flex;
+    margin: 2vmax auto;
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .paginationBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .paginationButton {
+    
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .paginationButton:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .paginationButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .currentPage {
+    
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .filterBox{
+    width: 10vmax;
+    position: absolute;
+    top: 10vmax;
+    left: 4vmax;
+  }
+
+  .category-link{
+    list-style: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 20px;
+
+  }
+
+  .category-link:hover{
+    background-color: tomato;
+    color: white;
+
+  }
+
+  .selectedCatogery{
+    background-color: tomato;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+  }
+  .remove{
+    height: 10px;
+    width: 10px;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  
+  @media(max-width : 600px){
+    .filterBox{
+      width: 20vmax;
+      position: static;
+      margin: auto;
+    }
+  }
+  

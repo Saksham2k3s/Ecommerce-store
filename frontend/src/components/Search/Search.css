@@ -1,0 +1,39 @@
+/* Search.css */
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-container form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .form-container button {
+    padding: 10px 20px;
+    background-color: tomato;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-container button:hover {
+    background-color: rgb(205, 66, 41);
+  }
+  

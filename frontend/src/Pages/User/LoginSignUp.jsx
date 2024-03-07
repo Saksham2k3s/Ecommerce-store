@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Login.css";
 import { MailLockOutlined, Face2Sharp, LockOpen } from "@mui/icons-material";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Redux/slice/login";
 import { userSignUp } from "../../Redux/slice/signUp";
@@ -9,7 +9,7 @@ import Loading from "../../components/layout/Loading/Loading";
 import { Alert } from "@mui/material";
 
 function LoginSignUp() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { token, isError, isLoading, errorMessage } = useSelector(
     (state) => state.userLogin
@@ -47,9 +47,9 @@ function LoginSignUp() {
   useEffect(() => {
     // Check if token is valid and navigate to home page
     if (token) {
-      history.push("/"); // Redirect to home page
+      navigate("/"); // Redirect to home page
     }
-  }, [token, history]);
+  }, [token, navigate]);
 
   function registerSubmit(e) {
     e.preventDefault();

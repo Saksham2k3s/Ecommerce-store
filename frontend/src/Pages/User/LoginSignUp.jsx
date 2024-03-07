@@ -1,17 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Login.css";
 import { MailLockOutlined, Face2Sharp, LockOpen } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Redux/slice/login";
 import { userSignUp } from "../../Redux/slice/signUp";
-import Loading from '../../components/layout/Loading/Loading'
+import Loading from "../../components/layout/Loading/Loading";
 import { Alert } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+
 function LoginSignUp() {
-  const navigate = useNavigate();
+  const history = useHistory();
   const dispatch = useDispatch();
-  const { token, isError, isLoading, errorMessage } = useSelector((state) => state.userLogin);
+  const { token, isError, isLoading, errorMessage } = useSelector(
+    (state) => state.userLogin
+  );
 
   const loginTab = useRef(null);
   const registerTab = useRef(null);
@@ -43,8 +45,11 @@ function LoginSignUp() {
   };
 
   useEffect(() => {
-    
-  }, [errorMessage, navigate, token]);
+    // Check if token is valid and navigate to home page
+    if (token) {
+      history.push("/"); // Redirect to home page
+    }
+  }, [token, history]);
 
   function registerSubmit(e) {
     e.preventDefault();
@@ -91,6 +96,7 @@ function LoginSignUp() {
       loginTab.current.classList.add("shiftToLeft");
     }
   };
+
   return (
     <>
       {isError && <Alert message={isError} color="error" />}
@@ -184,7 +190,11 @@ function LoginSignUp() {
                 onChange={registerDataChange}
               />
             </div>
-        {isLoading ? <Loading /> : <input type="submit" value="Register" className="signUpBtn" />}    
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <input type="submit" value="Register" className="signUpBtn" />
+            )}
           </form>
         </div>
       </div>
